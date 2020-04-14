@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Employee Form</h1>
+    <form  (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="model.name" name ="name" required>
+    </div>
+    <div class="form-group">
+        <label for="dep">Department</label>
+        <input type="text" class="form-control" id="dep" [(ngModel)]="model.dept" name = "depart">
+    </div>
+    <!-- <div class="form-group">
+    <label for="power">Employee Power</label>
+    <input type="text" class="form-control" id="power">
+    </div> -->
+    <div class ="form-group">  
+        <label for="power">Employee Power</label>  
+        <select class="form-control" id="power" [(ngModel)] ="model.power" name = "power" required>  
+          <option  *ngFor="let pow of powers" [value]="pow" >{{pow}}</option>  
+        </select>  
+      </div>  
+    <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+<div *ngIf="submitted" class="results">
+    <strong>Name:</strong> 
+    <span>{{ model.name }}</span><br><br>
+
+    <strong>Department:</strong> 
+    <span>{{ model.dept }}</span><br><br>
+
+    <strong>Employee Power: </strong> 
+    <span>{{ model.power }}</span>
+    
+</div>
